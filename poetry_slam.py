@@ -1,4 +1,5 @@
 import random
+#from random import choice 
 
 def get_file_lines(filename):
     poem_file = "/Users/jay/courses/cs1.0/poetry_slam/poem.txt"
@@ -13,11 +14,12 @@ def lines_printed_backwards(lines_list):
     lines_list = open("/Users/jay/courses/cs1.0/poetry_slam/poem.txt", "r").readlines()
     lines_list = lines_list[:: -1]
     num_lines = len(lines_list)
+    print()
     for line in range(len(lines_list)):
         reverse = str(num_lines - line) + " " + lines_list[line]
         print(reverse) #print lines in reverse, include original line number
 
-#-------Random Lines---------#
+# #-------Random Lines---------#
 def lines_printed_random(lines_list):
     lines_list = open("/Users/jay/courses/cs1.0/poetry_slam/poem.txt", "r").readlines()
     for line in lines_list:
@@ -28,28 +30,19 @@ def lines_printed_random(lines_list):
         #random lines, can repeat, just have same number of lines as original. 
 
 #-------Custom Lines---------#
-# def lines_printed_custom(lines_list):
-#     lines_list = "/Users/jay/courses/cs1.0/poetry_slam/poem.txt"
+#     print() #some unique way, switch it so instead of 1234 its 2143? somethin, or evens and then odds?
+def lines_printed_custom(lines_list):
+    lines_list = open("/Users/jay/courses/cs1.0/poetry_slam/poem.txt", "r").readlines()
+    # lines_list_odd
+    print("Odd: \n")
+    for line in range(len(lines_list)):
+        if line % 2 == 0: #checking if line is even
+            print(line + 1, lines_list[line]) #added 1 to print odd number with the odd line
+    print("Even: \n")
+    for line in range(len(lines_list)):
+        if line % 2 == 1:
+            print(line + 1, lines_list[line])
 
-#     print() #some unique way, switch it so instead of 1234 its 2143? somethin
 print(lines_printed_backwards('poem.txt'))
-
 print(lines_printed_random('poem.txt'))
-
-
-
-
-# def foo(jj)
-#     num_lines = len(jj)
-#     jj = jj[::-1] # reverses the list
-#     # 1 -> num_lines
-#     for i in range(len(jj)):
-#         #print(num_lines - 1)
-#         print(jj[i])
-#         variable = str(num_lines - i) + " " + jj[i]
-#         print(variable)
-
-# f = open('./poem.txt', 'r') # open a file
-
-# #foo([1, 2, 3, 4])
-# foo(f.read().splitlines()) #pass the list of lines to foo
+print(lines_printed_custom('poem.txt'))
