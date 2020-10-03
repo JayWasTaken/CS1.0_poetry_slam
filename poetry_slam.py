@@ -16,7 +16,14 @@ def lines_printed_backwards(lines_list):
     for line in range(len(lines_list)):
         reverse = str(num_lines - line) + " " + lines_list[line]
         print(reverse) #print lines in reverse, include original line number
+
 #-------Random Lines---------#
+def lines_printed_random(lines_list):
+    lines_list = open("/Users/jay/courses/cs1.0/poetry_slam/poem.txt", "r").readlines()
+    for line in lines_list:
+        line = random.randrange(len(lines_list))
+        rand_line = str(line) + " " + lines_list[line]
+        print(rand_line)
     
         #random lines, can repeat, just have same number of lines as original. 
 
@@ -27,6 +34,7 @@ def lines_printed_backwards(lines_list):
 #     print() #some unique way, switch it so instead of 1234 its 2143? somethin
 print(lines_printed_backwards('poem.txt'))
 
+print(lines_printed_random('poem.txt'))
 
 
 
