@@ -1,5 +1,5 @@
 import random
-#from random import choice 
+from random import choice 
 
 def get_file_lines(filename):
     poem_file = "/Users/jay/courses/cs1.0/poetry_slam/poem.txt"
@@ -38,11 +38,23 @@ def lines_printed_custom(lines_list):
     for line in range(len(lines_list)):
         if line % 2 == 0: #checking if line is even
             print(line + 1, lines_list[line]) #added 1 to print odd number with the odd line
+    print()
     print("Even: \n")
     for line in range(len(lines_list)):
         if line % 2 == 1:
             print(line + 1, lines_list[line])
 
-print(lines_printed_backwards('poem.txt'))
-print(lines_printed_random('poem.txt'))
-print(lines_printed_custom('poem.txt'))
+choice = input("""Please enter from options below:
+                    1. Read Poem Backwards
+                    2. Read Poem at Random
+                    3. Read Odd Lines, Then Even Lines
+                    Which would you like? """)
+
+if choice == "1":
+    print(lines_printed_backwards('poem.txt'))
+
+elif choice == "2":
+    print(lines_printed_random('poem.txt'))
+
+elif choice == "3":
+    print(lines_printed_custom('poem.txt'))
